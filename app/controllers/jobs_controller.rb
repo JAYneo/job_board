@@ -1,4 +1,20 @@
 class JobsController < ApplicationController
   def index
   end
+
+  def new
+    @job = Job.new
+  end
+
+  def create
+    Job.create(job_paarams)
+    redirect_to jobs_path
+  end
+
+  private
+
+  def job_paarams
+    params.require(:job).permit(:title, :description)
+  end
+
 end
