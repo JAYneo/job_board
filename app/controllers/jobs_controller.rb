@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   def index
+    @jobs = Job.all
   end
 
   def new
@@ -13,7 +14,7 @@ class JobsController < ApplicationController
 
   private
 
-  def job_paarams
+  def job_params
     params.require(:job).permit(:title, :description)
   end
 
