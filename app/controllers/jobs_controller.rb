@@ -8,9 +8,13 @@ class JobsController < ApplicationController
   end
 
   def create
-    Job.create(job_params)
-    # TODO if else for error message.
-    redirect_to jobs_path
+    @job = Job.new(job_params)
+    # Job.create(job_params)
+    if @job.save
+      redirect_to jobs_path
+    else
+      render 'new'
+    end
   end
 
   def edit

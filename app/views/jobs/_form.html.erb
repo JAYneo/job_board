@@ -1,24 +1,44 @@
 <%= form_for @job do |f| %>
+
+<% if @job.errors.any? %>
+    <div id="error_explaination">
+      <h2>
+        <%= pluralize(@job.errors.count, "error") %>
+        prohibited this article from being saved:
+      </h2>
+      <ul>
+        <% @job.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
+
   <div>
     <%= f.label :description %>
     <%= f.text_area :description, size: '60x6' %>
   </div>
+
   <div>
     <%= f.label :job_type %>
     <%= f.text_field :job_type %>
   </div>
+
   <div>
     <%= f.label :average_salary %>
     <%= f.number_field :average_salary %>
   </div>
+
   <div>
     <%= f.label :location %>
     <%= f.text_field :location %>
   </div>
+
   <div>
     <%= f.submit %>
   </div>
