@@ -8,6 +8,18 @@
     <%= f.text_area :description, size: '60x6' %>
   </div>
   <div>
+    <%= f.label :job_type %>
+    <%= f.text_field :job_type %>
+  </div>
+  <div>
+    <%= f.label :average_salary %>
+    <%= f.number_field :average_salary %>
+  </div>
+  <div>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+  <div>
     <%= f.submit %>
   </div>
 <% end %>

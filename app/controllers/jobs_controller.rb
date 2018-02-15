@@ -9,6 +9,7 @@ class JobsController < ApplicationController
 
   def create
     Job.create(job_params)
+    # TODO if else for error message.
     redirect_to jobs_path
   end
 
@@ -35,7 +36,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description)
+    params.require(:job).permit(:title, :description, :job_type, :average_salary, :location)
   end
 
 end
